@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forti Fores - FortiMusic</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #2f2f2f;
+      color: #ffffff;
+    }
+    .gradient-bg {
+      background: #000000;
+    }
+    .album-card {
+      transition: all 0.3s ease;
+      background: rgba(31, 31, 31, 0.7);
+      backdrop-filter: blur(10px);
+    }
+    .album-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+    }
+    .active-nav span:last-child {
+      transform: scaleX(1);
+    }
+    a:hover span:last-child {
+      transform: scaleX(1);
+    }
+    a span:last-child {
+      transform-origin: left;
+      transition: transform 0.3s ease;
+      transform: scaleX(0);
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, #ff6827, #00a8f3);
+    }
+  </style>
+</head>
+<body class="min-h-screen">
+  <div class="relative z-10">
+    <!-- Навігація -->
+    <nav class="gradient-bg border-b border-indigo-900/50 py-4 px-6">
+      <div class="container mx-auto flex justify-between items-center">
+        <div class="flex items-center space-x-4">
+          <img
+            src="https://pbs.twimg.com/media/G2-C8DZXwAA8Lxm?format=png&name=900x900"
+            alt="Forti Fores Logo"
+            class="h-12 w-auto"
+          />
+          <h1 class="text-2xl font-bold">
+            <span class="text-[#ff6827]">Forti</span>
+            <span class="text-[#00a8f3]">Fores</span>
+          </h1>
+        </div>
+        <div class="hidden md:flex space-x-8">
+          <a href="index.html" class="text-white hover:text-[#ff6827] transition relative pb-1">
+            <span class="mr-1">🏠</span> Home
+            <span
+              class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#ff6827] to-[#00a8f3] scale-x-0"
+            ></span>
+          </a>
+          <a href="albums.html" class="text-white hover:text-[#00a8f3] transition relative pb-1">
+            <span class="mr-1">♬</span> Albums and Singles
+            <span
+              class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#ff6827] to-[#00a8f3] scale-x-0"
+            ></span>
+          </a>
+          <a href="archive.html" class="text-white hover:text-[#ff6827] transition relative pb-1">
+            Avatar Archive
+            <span
+              class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#ff6827] to-[#00a8f3] scale-x-0"
+            ></span>
+          </a>
+          <a href="music.html" class="text-white hover:text-[#00a8f3] transition relative pb-1 active-nav">
+            FortiMusic
+            <span
+              class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#ff6827] to-[#00a8f3] scale-x-1"
+            ></span>
+          </a>
+        </div>
+        <div class="md:hidden">
+          <button class="text-indigo-200 hover:text-white">
+            <i data-feather="menu"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+   <!-- Банер -->
+<section class="relative h-[250px] md:h-[430px] w-full overflow-hidden">
+  <img
+    src="https://pbs.twimg.com/media/G3EDdI7XgAEFWSe?format=jpg&name=4096x4096"
+    alt="FortiMusic Banner"
+    class="absolute inset-0 w-full h-full object-cover brightness-75 object-top"
+  />
+  <div class="absolute inset-0 bg-black/50"></div>
+  <div class="absolute inset-0 flex flex-col justify-center items-end text-right px-6 md:px-16">
+    <h1 class="font-bold text-[45px]" style="font-family: 'Segoe Print', cursive;">
+      <span class="text-white">Forti</span><span class="text-[#d13144]">Music</span>
+    </h1>
+  </div>
+</section>
+
+   <!-- Наповнення сторінки -->
+<section class="mt-20 px-6 text-white">
+  <!-- 1 рядок -->
+  <div class="flex flex-col md:flex-row items-center justify-center gap-8 mb-16">
+    <img src="https://pbs.twimg.com/media/G3EDH6XWQAAGaSI?format=jpg&name=large" 
+         alt="FortiMusic image" 
+         class="w-full md:w-1/2 rounded-2xl shadow-lg">
+    <p class="text-2xl md:w-1/2 leading-relaxed">
+      It was under this name "FortiMusic" that I released 17 bits (tracks) from “Bits” to “Pixel Bit”.
+    </p>
+  </div>
+
+  <!-- 2 рядок -->
+  <div class="flex flex-col md:flex-row-reverse items-center justify-center gap-8">
+    <img src="https://pbs.twimg.com/media/G3EDQieWcAAY_SU?format=png&name=small" 
+         alt="Forti Fores image" 
+         class="w-full md:w-1/2 rounded-2xl shadow-lg">
+    <p class="text-2xl md:w-1/2 leading-relaxed">
+      One day, I just looked at my name and I didn't like the last word "Music", so I decided to change it to something else. 
+      I thought about it for a long time, and for some reason the Forest came to mind.<br><br>
+      “Forti Forest”, I thought.<br>
+      – I asked myself why "Forest".<br>
+      – I don't know, so I just removed the “t” and got "Fores".<br>
+      Now I am Forti Fores.
+    </p>
+  </div>
+</section>
+
+<!-- 3 рядок — Карусель -->
+<section class="mt-20 px-6 text-white">
+  <div class="relative max-w-4xl mx-auto overflow-hidden rounded-2xl shadow-lg">
+    <div id="carousel" class="flex transition-transform duration-700 ease-in-out">
+      <img src="https://pbs.twimg.com/media/G3EDH6XWQAAGaSI?format=jpg&name=large" class="w-full flex-shrink-0" alt="Image 1">
+      <img src="https://pbs.twimg.com/media/G3EDI4MXgAAAAZ6?format=jpg&name=large" class="w-full flex-shrink-0" alt="Image 2">
+      <img src="https://pbs.twimg.com/media/G3EDKB-WUAAYnIn?format=jpg&name=large" class="w-full flex-shrink-0" alt="Image 3">
+      <img src="https://pbs.twimg.com/media/G3EDLAEXoAAFeZE?format=jpg&name=large" class="w-full flex-shrink-0" alt="Image 4">
+    </div>
+
+    <!-- Кнопки керування -->
+    <button id="prevBtn" class="absolute top-1/2 left-4 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full text-xl">&#10094;</button>
+    <button id="nextBtn" class="absolute top-1/2 right-4 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full text-xl">&#10095;</button>
+  </div>
+</section>
+
+<script>
+  const carousel = document.getElementById('carousel');
+  const images = carousel.children;
+  const total = images.length;
+  let index = 0;
+  let autoSlide = true;
+
+  function showSlide(i) {
+    carousel.style.transform = `translateX(-${i * 100}%)`;
+  }
+
+  function nextSlide() {
+    index = (index + 1) % total;
+    showSlide(index);
+  }
+
+  function prevSlide() {
+    index = (index - 1 + total) % total;
+    showSlide(index);
+  }
+
+  let interval = setInterval(nextSlide, 5000);
+
+  document.getElementById('nextBtn').addEventListener('click', () => {
+    nextSlide();
+    stopAuto();
+  });
+
+  document.getElementById('prevBtn').addEventListener('click', () => {
+    prevSlide();
+    stopAuto();
+  });
+
+  function stopAuto() {
+    if (autoSlide) {
+      clearInterval(interval);
+      autoSlide = false;
+    }
+  }
+</script>
+
+
+    <!-- Music Platforms -->
+    <section id="music" class="py-16 px-6 bg-gradient-to-t from-slate-1000/50 to-transparent">
+      <div class="container mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12 text-white">
+          Stream Everywhere
+        </h2>
+        <div class="flex flex-wrap justify-center gap-8">
+          <!-- Deezer -->
+          <a href="https://www.deezer.com/artist/233041951" class="social-icon">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/deezer.svg" alt="Deezer" class="w-12 h-12 invert">
+          </a>
+
+          <!-- Discord -->
+          <a href="https://discord.gg/hR9VHVvAfZ" class="social-icon">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" alt="Discord" class="w-12 h-12 invert">
+          </a>
+
+          <!-- X -->
+          <a href="https://x.com/forti_fores" class="social-icon">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="X" class="w-12 h-12 invert">
+          </a>
+
+          <!-- Spotify -->
+          <a href="https://open.spotify.com/artist/3OLgKP6FFxmtoIsmdSMdCH?si=yzO2ay5US466hbJ-VFphPQ" class="social-icon">
+            <img src="https://ssl.gstatic.com/atari/images/sociallinks/spotify_white_44dp.png" alt="Spotify" class="w-12 h-12">
+          </a>
+
+          <!-- YouTube -->
+          <a href="https://www.youtube.com/channel/UC0cg1_22M2tONUPWI7PGUsQ" class="social-icon">
+            <img src="https://ssl.gstatic.com/atari/images/sociallinks/youtube_white_44dp.png" alt="YouTube" class="w-12 h-12">
+          </a>
+
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/forti_fores/" class="social-icon">
+            <img src="https://ssl.gstatic.com/atari/images/sociallinks/instagram_white_44dp.png" alt="Instagram" class="w-12 h-12">
+          </a>
+
+          <!-- Apple Music -->
+          <a href="https://music.apple.com/ua/artist/forti-fores/1709406688" class="social-icon">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/applemusic.svg" alt="Apple Music" class="w-12 h-12 invert">
+          </a>
+
+          <!-- SoundCloud -->
+          <a href="https://soundcloud.com/fortifores/tracks" class="social-icon">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/soundcloud.svg" alt="SoundCloud" class="w-12 h-12 invert">
+          </a>
+
+          <!-- VK -->
+          <a href="https://vk.com/artist/fortifores" class="social-icon">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/vk.svg" alt="VK" class="w-12 h-12 invert">
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+        <footer class="gradient-bg border-t border-indigo-900/50 py-8 px-6">
+            <div class="container mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-6 md:mb-0">
+                        <h2 class="text-2xl font-bold text-white">Forti Fores</h2>
+                    </div>
+<div class="text-center md:text-right">
+                        <p class="text-white">© ℗ 2025 Forti Fores/FS Team</p>
+                   </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
