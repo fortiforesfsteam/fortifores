@@ -25,69 +25,55 @@
       transform: translateY(-5px);
       box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
     }
-    .active-nav span:last-child {
-      transform: scaleX(1);
-    }
-    a:hover span:last-child {
-      transform: scaleX(1);
-    }
-    a span:last-child {
-      transform-origin: left;
-      transition: transform 0.3s ease;
-      transform: scaleX(0);
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(to right, #ff6827, #00a8f3);
-    }
   </style>
 </head>
 <body class="min-h-screen">
   <div class="relative z-10">
-    <!-- Навігація -->
+    <!-- Navigation -->
     <nav class="gradient-bg border-b border-indigo-900/50 py-4 px-6">
       <div class="container mx-auto flex justify-between items-center">
         <div class="flex items-center space-x-4">
-          <img
-            src="https://pbs.twimg.com/media/G2-C8DZXwAA8Lxm?format=png&name=900x900"
-            alt="Forti Fores Logo"
-            class="h-12 w-auto"
-          />
+          <img src="https://pbs.twimg.com/media/G2-C8DZXwAA8Lxm?format=png&name=900x900" 
+               alt="Forti Fores Logo" class="h-12 w-auto">
           <h1 class="text-2xl font-bold">
-            <span class="text-[#ff6827]">Forti</span>
-            <span class="text-[#00a8f3]">Fores</span>
+            <span class="text-[#ff6827]">Forti</span> <span class="text-[#00a8f3]">Fores</span>
           </h1>
         </div>
+
+        <!-- Desktop Navigation -->
         <div class="hidden md:flex space-x-8">
-          <a href="index.html" class="text-white hover:text-[#ff6827] transition relative pb-1">
+          <a href="index.html" class="text-white hover:text-[#ff6827] transition relative pb-1 active-nav">
             <span class="mr-1">🏠</span> Home
-            <span
-              class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#ff6827] to-[#00a8f3] scale-x-0"
-            ></span>
+            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#ff6827] to-[#00a8f3] scale-x-0"></span>
           </a>
           <a href="albums.html" class="text-white hover:text-[#00a8f3] transition relative pb-1">
-            <span class="mr-1">♬</span> Albums and Singles
-            <span
-              class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#ff6827] to-[#00a8f3] scale-x-0"
-            ></span>
+            <span class="mr-1">♬</span> Albums & Singles
+            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#ff6827] to-[#00a8f3] scale-x-0"></span>
           </a>
           <a href="archive.html" class="text-white hover:text-[#ff6827] transition relative pb-1">
             Avatar Archive
-            <span
-              class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#ff6827] to-[#00a8f3] scale-x-0"
-            ></span>
+            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#ff6827] to-[#00a8f3] scale-x-0"></span>
           </a>
-          <a href="music.html" class="text-white hover:text-[#00a8f3] transition relative pb-1 active-nav">
+          <a href="music.html" class="text-white hover:text-[#00a8f3] transition relative pb-1">
             FortiMusic
-            <span
-              class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#ff6827] to-[#00a8f3] scale-x-1"
-            ></span>
+            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#ff6827] to-[#00a8f3] scale-x-1"></span>
           </a>
         </div>
+
+        <!-- Mobile Menu Button -->
         <div class="md:hidden">
-          <button class="text-indigo-200 hover:text-white">
+          <button id="menu-toggle" class="text-indigo-200 hover:text-white focus:outline-none">
             <i data-feather="menu"></i>
           </button>
         </div>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobile-menu" class="md:hidden hidden flex-col space-y-4 mt-4 bg-[#1a1a1a] border-t border-indigo-900/50 p-4 rounded-xl transition-all duration-300 ease-in-out transform origin-top scale-y-0 opacity-0">
+        <a href="index.html" class="block text-white hover:text-[#ff6827] transition">🏠 Home</a>
+        <a href="albums.html" class="block text-white hover:text-[#00a8f3] transition">♬ Albums & Singles</a>
+        <a href="archive.html" class="block text-white hover:text-[#ff6827] transition">📁 Avatar Archive</a>
+        <a href="music.html" class="block text-white hover:text-[#00a8f3] transition">🎧 FortiMusic</a>
       </div>
     </nav>
 
@@ -261,5 +247,30 @@
             </div>
         </footer>
     </div>
+    <script>
+    // Feather Icons
+    feather.replace();
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = !mobileMenu.classList.contains('hidden');
+
+      if (isOpen) {
+        mobileMenu.classList.add('opacity-0', 'scale-y-0');
+        setTimeout(() => mobileMenu.classList.add('hidden'), 200);
+      } else {
+        mobileMenu.classList.remove('hidden');
+        setTimeout(() => mobileMenu.classList.remove('opacity-0', 'scale-y-0'), 10);
+      }
+
+      const icon = menuToggle.querySelector('i');
+      const currentIcon = icon.getAttribute('data-feather');
+      icon.setAttribute('data-feather', currentIcon === 'menu' ? 'x' : 'menu');
+      feather.replace();
+    });
+  </script>
 </body>
 </html>
