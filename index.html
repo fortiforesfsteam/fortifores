@@ -325,7 +325,7 @@
     });
 
     // Countdown
-    const countdownDate = new Date("Dec 4, 2025 00:00:00").getTime();
+    const countdownDate = new Date("Dec 3, 2025 00:00:00").getTime();
 
   const countdownFunction = setInterval(() => {
     const now = new Date().getTime();
@@ -334,12 +334,11 @@
     if (distance <= 0) {
       clearInterval(countdownFunction);
 
-      document.getElementById("days").innerText = 0;
-      document.getElementById("hours").innerText = 0;
-      document.getElementById("minutes").innerText = 0;
-      document.getElementById("seconds").innerText = 0;
+      document.getElementById("days").innerText = "Out!";
+      document.getElementById("hours").innerText = "Out!";
+      document.getElementById("minutes").innerText = "Out!";
+      document.getElementById("seconds").innerText = "Out!";
 
-      document.getElementById("header").innerText = "Out!";
       return;
     }
 
@@ -380,3 +379,4 @@
   </script>
 </body>
 </html>
+
