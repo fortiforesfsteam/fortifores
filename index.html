@@ -169,12 +169,12 @@
     <!-- Hero Section -->
     <section id="home" class="py-20 px-6 flex flex-col items-center text-center">
       <div class="w-full md:w-2/3 mb-8">
-        <img src="https://pbs.twimg.com/media/GzCAqN5WEAA39cy?format=jpg&name=large" 
-             alt="Rebellion of Light" 
+        <img src="https://pbs.twimg.com/media/G7WEokBWgAA1eOU?format=jpg&name=large" 
+             alt="Quiet River" 
              class="rounded-xl shadow-2xl w-full max-w-2xl mx-auto">
       </div>
-      <button class="custom-btn" onclick="window.location.href='https://lnkfi.re/Rebellion_of_Light'">
-        Rebellion of Light
+      <button class="custom-btn" onclick="window.location.href='https://lnkfi.re/quiet_river'">
+        Quiet River
       </button>
     </section>
 
@@ -325,33 +325,32 @@
     });
 
     // Countdown
-    const countdownDate = new Date("Dec 3, 2025 00:00:00").getTime();
+    // Встановіть дату, до якої йде зворотний відлік
+        var countdownDate = new Date("Dec 4, 2025 00:00:00").getTime();
 
-  const countdownFunction = setInterval(() => {
-    const now = new Date().getTime();
-    const distance = countdownDate - now;
+        // Оновлюйте відлік кожну секунду
+        var countdownFunction = setInterval(function () {
+            var now = new Date().getTime();
+            var distance = countdownDate - now;
 
-    if (distance <= 0) {
-      clearInterval(countdownFunction);
+            // Розрахунок часу
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      document.getElementById("days").innerText = "Out!";
-      document.getElementById("hours").innerText = "Out!";
-      document.getElementById("minutes").innerText = "Out!";
-      document.getElementById("seconds").innerText = "Out!";
+            // Вивести результат
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
 
-      return;
-    }
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    document.getElementById("days").innerText = days;
-    document.getElementById("hours").innerText = hours;
-    document.getElementById("minutes").innerText = minutes;
-    document.getElementById("seconds").innerText = seconds;
-  }, 1000);
+            // Якщо час закінчився
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.getElementById("countdown").innerHTML = "Out!";
+            }
+        }, 1000);
 
     // Feather Icons
     feather.replace();
@@ -379,4 +378,3 @@
   </script>
 </body>
 </html>
-
