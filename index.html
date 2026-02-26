@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forti Fores - Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #2f2f2f;
+      color: #ffffff;
+    }
+    .gradient-bg {
+      background: #000000;
+    }
+    .album-card {
+      transition: all 0.3s ease;
+      background: rgba(31, 31, 31, 0.7);
+      backdrop-filter: blur(10px);
+    }
+    .album-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body class="min-h-screen">
+  <!-- Main Content -->
+  <div class="relative z-10">
+
+    <!-- Navigation -->
+    <nav class="gradient-bg border-b border-indigo-900/50 py-4 px-6">
+      <div class="container mx-auto flex justify-between items-center">
+        <div class="flex items-center space-x-4">
+          <img src="https://pbs.twimg.com/media/G2-C8DZXwAA8Lxm?format=png&name=900x900" 
+               alt="Forti Fores Logo" class="h-12 w-auto">
+          <h1 class="text-2xl font-bold">
+            <span class="text-[#ff6827]">Forti</span> <span class="text-[#00a8f3]">Fores</span>
+          </h1>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex space-x-8">
+          <a href="index.html" class="text-white hover:text-[#ff6827] transition relative pb-1 flex items-center active-nav">
+            <i data-feather="home" class="w-4 h-4 mr-1"></i> Home
+            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#ff6827] to-[#00a8f3] scale-x-1"></span>
+          </a>
+          <a href="albums.html" class="text-white hover:text-[#00a8f3] transition relative pb-1 flex items-center">
+            <i data-feather="music" class="w-4 h-4 mr-1"></i> Albums & Singles
+            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#ff6827] to-[#00a8f3] scale-x-0"></span>
+          </a>
+          <a href="archive.html" class="text-white hover:text-[#ff6827] transition relative pb-1 flex items-center">
+            <i data-feather="folder" class="w-4 h-4 mr-1"></i> Avatar Archive
+            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#ff6827] to-[#00a8f3] scale-x-0"></span>
+          </a>
+          <a href="music.html" class="text-white hover:text-[#00a8f3] transition relative pb-1 flex items-center">
+            <i data-feather="headphones" class="w-4 h-4 mr-1"></i> FortiMusic
+            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#ff6827] to-[#00a8f3] scale-x-0"></span>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden">
+          <button id="menu-toggle" class="text-indigo-200 hover:text-white focus:outline-none">
+            <i data-feather="menu"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobile-menu" class="md:hidden hidden flex-col space-y-4 mt-4 bg-[#1a1a1a] border-t border-indigo-900/50 p-4 rounded-xl transition-all duration-300 ease-in-out transform origin-top scale-y-0 opacity-0">
+        <a href="index.html" class="flex items-center text-white hover:text-[#ff6827] transition"><i data-feather="home" class="w-4 h-4 mr-2"></i> Home</a>
+        <a href="albums.html" class="flex items-center text-white hover:text-[#00a8f3] transition"><i data-feather="music" class="w-4 h-4 mr-2"></i> Albums & Singles</a>
+        <a href="archive.html" class="flex items-center text-white hover:text-[#ff6827] transition"><i data-feather="folder" class="w-4 h-4 mr-2"></i> Avatar Archive</a>
+        <a href="music.html" class="flex items-center text-white hover:text-[#00a8f3] transition"><i data-feather="headphones" class="w-4 h-4 mr-2"></i> FortiMusic</a>
+      </div>
+    </nav>
+
+    <!-- Banner -->
+    <div class="w-full">
+      <img 
+        src="https://pbs.twimg.com/media/G2-ENfuWgAA89iq?format=jpg&name=4096x4096"
+        alt="Forti Fores Banner"
+        class="w-full object-cover max-h-80 rounded-none shadow-lg"
+      >
+    </div>
+
+    <!-- Countdown Section -->
+    <section class="py-8 px-6 bg-gradient-to-b from-indigo-1000/50 to-transparent">
+      <div class="container mx-auto text-center">
+        <div class="countdown-wrapper inline-block px-6 py-6 rounded-xl">
+          <div id="header">New Album Coming Soon</div>
+          <div id="countdown">
+            <div class="countdown-item">
+              <span class="value" id="days">0</span>
+              <span class="label">Days</span>
+            </div>
+            <div class="countdown-item">
+              <span class="value" id="hours">0</span>
+              <span class="label">Hours</span>
+            </div>
+            <div class="countdown-item">
+              <span class="value" id="minutes">0</span>
+              <span class="label">Minutes</span>
+            </div>
+            <div class="countdown-item">
+              <span class="value" id="seconds">0</span>
+              <span class="label">Seconds</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .countdown-wrapper {
+        font-family: sans-serif;
+        background: #2f2f2f;
+      }
+      .countdown-wrapper #header {
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 15px;
+        color: white;
+        animation: colorChange 3s infinite alternate ease-in-out;
+      }
+      @keyframes colorChange {
+        0% { color: #ff6827; }
+        100% { color: #00a8f3; }
+      }
+      .countdown-wrapper #countdown {
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 10px;
+        color: white;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .countdown-wrapper .countdown-item {
+        text-align: center;
+        min-width: 60px;
+      }
+      .countdown-wrapper .countdown-item .value {
+        font-size: 36px;
+        display: block;
+        color: white;
+      }
+      .countdown-wrapper .countdown-item .label {
+        font-size: 18px;
+        color: lightgrey;
+      }
+      @media (max-width: 600px) {
+        .countdown-wrapper #header { font-size: 24px; }
+        .countdown-wrapper #countdown { gap: 10px; }
+        .countdown-wrapper .countdown-item .value { font-size: 28px; }
+        .countdown-wrapper .countdown-item .label { font-size: 14px; }
+      }
+    </style>
+
+    <!-- Hero Section -->
+    <section id="home" class="py-20 px-6 flex flex-col items-center text-center">
+      <div class="w-full md:w-2/3 mb-8">
+        <img src="https://pbs.twimg.com/media/G7WEokBWgAA1eOU?format=jpg&name=large" 
+             alt="Quiet River" 
+             class="rounded-xl shadow-2xl w-full max-w-2xl mx-auto album-card cursor-pointer" onclick="openLightbox(this.src)">
+      </div>
+      <button class="custom-btn" onclick="window.location.href='https://lnkfi.re/quiet_river'">
+        Quiet River
+      </button>
+    </section>
+
+    <style>
+      .custom-btn {
+        position: relative;
+        z-index: 1;
+        width: 220px;
+        height: 50px;
+        color: #fff;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: center;
+        line-height: 50px;
+        border: none;
+        background: linear-gradient(135deg, #ff6827 0%, #00a8f3 100%);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      }
+      .custom-btn:hover {
+        background: linear-gradient(135deg, #00a8f3 0%, #ff6827 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+      }
+    </style>
+
+     <!-- Albums Section -->
+                
+                <!-- Bits Single -->
+                <div class="flex flex-col md:flex-row items-center mb-16">
+                    <div class="md:w-1/3 mb-8 md:mb-0">
+                        <img src="https://pbs.twimg.com/media/F7lI5EnWQAAupFd?format=jpg&name=large" 
+                             alt="Bits" class="rounded-xl shadow-2xl w-10/12 mx-auto album-card cursor-pointer" onclick="openLightbox(this.src)">
+                    </div>
+                    <div class="md:w-2/3 md:pl-12">
+                        <h3 class="text-3xl font-bold mb-4 text-white">Bits</h3>
+                        <p class="text-white text-lg mb-6">
+"Bits" is the first beat by the artist Forti Fores, released on YouTube on July 11, 2022. After a long time, on September 30, 2023, "Bits" appeared as a single on Spotify, Apple Music, and other music platforms.
+                        </p>
+                        <a href="https://genius.com/Forti-fores-bits-lyrics" class="inline-block px-6 py-2 border border-[#00a8f3] text-[#00a8f3] rounded-full hover:bg-[#00a8f3] hover:text-white transition">genius.com
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Start Bits Album -->
+                <div class="flex flex-col md:flex-row items-center mb-16">
+                    <div class="md:w-1/3 mb-8 md:mb-0">
+                        <img src="https://pbs.twimg.com/media/F7uw3I2WQAAz5rj?format=jpg&name=large" 
+                             alt="Start Bits" class="rounded-xl shadow-2xl w-10/12 mx-auto album-card cursor-pointer" onclick="openLightbox(this.src)">
+                    </div>
+                    <div class="md:w-2/3 md:pl-12">
+<h3 class="text-3xl font-bold mb-4 text-white">Start Bits</h3>
+                        <p class="text-white text-lg mb-6">
+                          The mini-album "Start Bits" was supposed to include more beats and was meant to become a regular album, but I decided to put only 4 beats in it. On YouTube, "Start Bits" was essentially compiled in 2022. On Spotify, Apple Music, and other platforms, "Start Bits" was released on October 4, 2023.
+                        </p>
+                        <div class="mb-6">
+                            <h4 class="font-semibold text-white text-lg mb-2">Tracklist:</h4>
+                            <ul class="text-white text-lg space-y-1">
+                                <li>#1 Bits - July 11, 2022</li>
+                                <li>#2 Type Rock - July 12, 2022</li>
+                                <li>#3 Pop Pianino - July 14, 2022</li>
+                                <li>#4 Dance Bit - July 16, 2022</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- Music Platforms -->
+    <section id="music" class="py-16 px-6 bg-gradient-to-t from-slate-1000/50 to-transparent">
+      <div class="container mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12 text-white">
+          Stream Everywhere
+        </h2>
+        <div class="flex flex-wrap justify-center items-center gap-8">
+          <!-- Deezer -->
+          <a href="https://www.deezer.com/artist/233041951" class="social-icon flex items-center justify-center w-16 h-16">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/deezer.svg" alt="Deezer" class="w-12 h-12 invert object-contain">
+          </a>
+
+          <!-- Discord -->
+          <a href="https://discord.gg/hR9VHVvAfZ" class="social-icon flex items-center justify-center w-16 h-16">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" alt="Discord" class="w-12 h-12 invert object-contain">
+          </a>
+
+          <!-- X (Twitter) -->
+          <a href="https://x.com/forti_fores" class="social-icon flex items-center justify-center w-16 h-16">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="X" class="w-12 h-12 invert object-contain">
+          </a>
+
+          <!-- Spotify -->
+          <a href="https://open.spotify.com/artist/3OLgKP6FFxmtoIsmdSMdCH?si=yzO2ay5US466hbJ-VFphPQ" class="social-icon flex items-center justify-center w-16 h-16">
+            <img src="https://ssl.gstatic.com/atari/images/sociallinks/spotify_white_44dp.png" alt="Spotify" class="w-12 h-12 object-contain">
+          </a>
+
+          <!-- YouTube -->
+          <a href="https://www.youtube.com/channel/UC0cg1_22M2tONUPWI7PGUsQ" class="social-icon flex items-center justify-center w-16 h-16">
+            <img src="https://ssl.gstatic.com/atari/images/sociallinks/youtube_white_44dp.png" alt="YouTube" class="w-12 h-12 object-contain">
+          </a>
+
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/forti_fores/" class="social-icon flex items-center justify-center w-16 h-16">
+            <img src="https://ssl.gstatic.com/atari/images/sociallinks/instagram_white_44dp.png" alt="Instagram" class="w-12 h-12 object-contain">
+          </a>
+
+          <!-- Apple Music -->
+          <a href="https://music.apple.com/ua/artist/forti-fores/1709406688" class="social-icon flex items-center justify-center w-16 h-16">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/applemusic.svg" alt="Apple Music" class="w-12 h-12 invert object-contain">
+          </a>
+
+          <!-- SoundCloud -->
+          <a href="https://soundcloud.com/fortifores/tracks" class="social-icon flex items-center justify-center w-16 h-16">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/soundcloud.svg" alt="SoundCloud" class="w-12 h-12 invert object-contain">
+          </a>
+
+          <!-- VK -->
+          <a href="https://vk.com/artist/fortifores" class="social-icon flex items-center justify-center w-16 h-16">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/vk.svg" alt="VK" class="w-12 h-12 invert object-contain">
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="gradient-bg border-t border-indigo-900/50 py-8 px-6">
+      <div class="container mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-6 md:mb-0">
+            <h2 class="text-2xl font-bold text-white">Forti Fores</h2>
+          </div>
+          <div class="text-center md:text-right">
+            <p class="text-white">© 2026 Forti Fores/FS Team</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Active nav link
+    document.querySelectorAll('nav a').forEach(link => {
+      if(link.href === window.location.href) {
+        link.classList.add('active-nav');
+      }
+    });
+
+    // Countdown
+    // Встановіть дату, до якої йде зворотний відлік
+        var countdownDate = new Date("Feb 27, 2026 00:00:00").getTime();
+
+        // Оновлюйте відлік кожну секунду
+        var countdownFunction = setInterval(function () {
+            var now = new Date().getTime();
+            var distance = countdownDate - now;
+
+            // Розрахунок часу
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Вивести результат
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+
+            // Якщо час закінчився
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.getElementById("countdown").innerHTML = "Out!";
+            }
+        }, 1000);
+
+    // Feather Icons
+    feather.replace();
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = !mobileMenu.classList.contains('hidden');
+
+      if (isOpen) {
+        mobileMenu.classList.add('opacity-0', 'scale-y-0');
+        setTimeout(() => mobileMenu.classList.add('hidden'), 200);
+      } else {
+        mobileMenu.classList.remove('hidden');
+        setTimeout(() => mobileMenu.classList.remove('opacity-0', 'scale-y-0'), 10);
+      }
+
+      const icon = menuToggle.querySelector('i');
+      const currentIcon = icon.getAttribute('data-feather');
+      icon.setAttribute('data-feather', currentIcon === 'menu' ? 'x' : 'menu');
+      feather.replace();
+    });
+  </script>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="fixed inset-0 z-50 hidden bg-black/90 flex items-center justify-center opacity-0 transition-opacity duration-300" onclick="closeLightbox()">
+    <span class="absolute top-4 right-6 text-white text-4xl cursor-pointer hover:text-gray-300">&times;</span>
+    <img id="lightbox-img" src="" class="max-w-[90%] max-h-[90vh] object-contain rounded-lg shadow-2xl transform scale-95 transition-transform duration-300">
+  </div>
+
+  <script>
+    function openLightbox(src) {
+      const lightbox = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      img.src = src;
+      lightbox.classList.remove('hidden');
+      void lightbox.offsetWidth; // trigger reflow
+      lightbox.classList.remove('opacity-0');
+      img.classList.remove('scale-95');
+      img.classList.add('scale-100');
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      lightbox.classList.add('opacity-0');
+      img.classList.remove('scale-100');
+      img.classList.add('scale-95');
+      setTimeout(() => {
+        lightbox.classList.add('hidden');
+      }, 300);
+    }
+  </script>
+</body>
+</html>
