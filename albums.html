@@ -156,7 +156,7 @@ backdrop-filter: blur(10px);
 </section>
 
 <!-- New Progres -->
-<section class="mt-20 px-6">
+<section id="new-progres" class="mt-20 px-6">
   <h2 class="text-4xl font-bold text-center mb-10 text-white">New Progres</h2>
   <div class="flex flex-wrap justify-center gap-8 mb-10">
     <div class="w-full md:w-1/4 lg:w-1/5">
@@ -279,7 +279,23 @@ backdrop-filter: blur(10px);
   </div>
 </section>
 
-<!-- Temptation of Broken Silence -->      
+<!-- Temptation of Broken Silence -->
+<section class="mt-20 px-6">
+  <h2 class="text-4xl font-bold text-center mb-10 text-white">Temptation of Broken Silence</h2>
+  <div class="flex flex-wrap justify-center gap-8 mb-10">
+    <div class="w-full md:w-1/3 lg:w-1/4">
+      <img src="https://pbs.twimg.com/media/G7WEokBWgAA1eOU?format=jpg&name=large" alt="Temptation of Broken Silence 1" class="rounded-xl shadow-2xl w-full album-card cursor-pointer" onclick="openLightbox(this.src)">
+    </div>
+    <div class="w-full md:w-1/3 lg:w-1/4">
+      <img src="https://pbs.twimg.com/media/HCHO6YlWwAA7nuQ?format=jpg&name=medium" alt="Temptation of Broken Silence 2" class="rounded-xl shadow-2xl w-full album-card cursor-pointer" onclick="openLightbox(this.src)">
+    </div>
+  </div>
+  <div class="max-w-sm mx-auto">
+    <div style="border-radius: 12px; background: linear-gradient(45deg, #ff6827, #00a8f3); padding: 5px;">
+      <iframe style="border-radius:12px; width: 100%; height: 352px; border: 0;" src="https://open.spotify.com/embed/album/23QqGH8o3ABSnZrhPz2mDN?utm_source=generator&theme=0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
 
         <!-- Music Platforms -->
     <section id="music" class="py-16 px-6 bg-gradient-to-t from-slate-1000/50 to-transparent">
@@ -383,6 +399,11 @@ backdrop-filter: blur(10px);
     <img id="lightbox-img" src="" class="max-w-[90%] max-h-[90vh] object-contain rounded-lg shadow-2xl transform scale-95 transition-transform duration-300">
   </div>
 
+  <!-- Scroll to Top Button -->
+  <button id="scrollToTopBtn" class="fixed bottom-8 right-8 z-40 bg-[#2f2f2f] border-2 border-black w-10 h-10 rounded-full flex items-center justify-center opacity-0 translate-y-10 pointer-events-none transition-all duration-500 ease-in-out hover:bg-[#3a3a3a] shadow-lg text-white text-xl font-bold" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    ↑
+  </button>
+
   <script>
     function openLightbox(src) {
       const lightbox = document.getElementById('lightbox');
@@ -405,6 +426,42 @@ backdrop-filter: blur(10px);
         lightbox.classList.add('hidden');
       }, 300);
     }
+
+    // Scroll to Top Logic
+    document.addEventListener('DOMContentLoaded', () => {
+      const scrollBtn = document.getElementById('scrollToTopBtn');
+      const newProgresSection = document.getElementById('new-progres');
+      const footer = document.querySelector('footer');
+      
+      if (scrollBtn && newProgresSection && footer) {
+        window.addEventListener('scroll', () => {
+          // Get the bottom position of the New Progres section relative to the viewport
+          const rect = newProgresSection.getBoundingClientRect();
+          const footerRect = footer.getBoundingClientRect();
+          
+          // If the bottom of the section is above the bottom of the viewport (meaning we scrolled past it)
+          if (rect.bottom < window.innerHeight) {
+            scrollBtn.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
+            scrollBtn.classList.add('opacity-100', 'translate-y-0');
+            
+            // Check if footer is visible and adjust button position
+            if (footerRect.top < window.innerHeight) {
+              // Calculate how much the footer is showing
+              const footerVisibleHeight = window.innerHeight - footerRect.top;
+              // Move button up by the visible height of the footer plus original bottom margin (32px = bottom-8)
+              scrollBtn.style.bottom = `${footerVisibleHeight + 32}px`;
+            } else {
+              // Reset to default position
+              scrollBtn.style.bottom = '2rem'; // 32px = bottom-8
+            }
+          } else {
+            scrollBtn.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none');
+            scrollBtn.classList.remove('opacity-100', 'translate-y-0');
+            scrollBtn.style.bottom = '2rem';
+          }
+        });
+      }
+    });
   </script>
 </body>
 </html>
